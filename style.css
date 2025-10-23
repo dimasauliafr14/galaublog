@@ -1,0 +1,311 @@
+/* ==================================== */
+/* 0. RESET & DASAR                     */
+/* ==================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; 
+    min-height: 100vh;
+    margin: 0; 
+    padding: 0;
+    
+    /* LAYOUT UNIK DESKTOP: Membuat 2 kolom */
+    display: grid;
+    grid-template-columns: 1fr 600px; 
+}
+
+/* ==================================== */
+/* 1. HEADER (Navigasi Atas)            */
+/* ==================================== */
+
+.main-header {
+    grid-column: 1 / span 2; 
+    background-color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    position: sticky; 
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* --- Container Tombol dan Avatar --- */
+.header-actions {
+    display: flex;
+    align-items: center; 
+    gap: 12px; /* Jarak yang simetris */
+}
+
+/* --- Style untuk Avatar Link (<a>) --- */
+.avatar-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center; 
+    margin: 0; 
+}
+
+/* --- STYLE UNTUK AVATAR DI HEADER (40px) --- */
+.header-profile-display {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    /* Latar Belakang Putih, Border Kuning */
+    background-color: #fff; 
+    border: 2px solid #ffc107; 
+    
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+}
+
+/* ==================================== */
+/* 2. TOMBOL (Re-usable Buttons)        */
+/* ==================================== */
+
+.btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 9999px; /* Bentuk 'Pill' */
+    font-weight: bold;
+    transition: background-color 0.2s;
+    border: 1px solid transparent; 
+    margin: 0; 
+}
+
+.btn-primary { 
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-secondary { 
+    background-color: transparent;
+    border-color: #ffc107; 
+    color: #333;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+}
+
+.btn-secondary:hover {
+    background-color: #ffc10720; 
+}
+
+
+/* ==================================== */
+/* 3. MAIN CONTAINER (Kolom Feed)       */
+/* ==================================== */
+
+.main-container {
+    grid-column: 2 / 3; 
+    max-width: 600px; 
+    width: 100%; 
+    margin: 0; 
+    background-color: #fff; 
+    min-height: 100vh; 
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.feed-title {
+    padding: 15px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+/* ==================================== */
+/* 4. CURHATAN CARD (Gaya Tweet)        */
+/* ==================================== */
+
+.curhatan-card {
+    padding: 15px;
+    border-bottom: 1px solid #eee; 
+    display: flex; 
+    gap: 10px;
+    transition: background-color 0.1s;
+}
+
+.curhatan-card:hover {
+    background-color: #fafafa;
+}
+
+.curhatan-avatar { /* Avatar di dalam Curhatan Card */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff; 
+    border: 2px solid #ffc107; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* Style untuk Gambar/Emoji di dalam Avatar */
+.header-profile-display img, .curhatan-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.curhatan-content-area { flex-grow: 1; }
+
+.curhatan-header {
+    display: flex;
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 5px;
+}
+
+.curhatan-header span { white-space: nowrap; }
+
+/* --- Style untuk Tombol Hapus --- */
+.btn-delete-curhat {
+    background: none;
+    border: 1px solid #dc3545; /* Merah */
+    color: #dc3545;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto; /* KUNCI: Mendorong tombol ini ke pojok kanan */
+    transition: background-color 0.2s;
+}
+
+.btn-delete-curhat:hover {
+    background-color: #dc3545;
+    color: white;
+}
+/* ... Style Card lainnya (username, meta, body) ... */
+.curhatan-username { font-weight: bold; margin-right: 5px; color: #333; }
+.curhatan-meta { font-size: 14px; color: #888; }
+.curhatan-body h3 { margin: 0 0 5px 0; font-size: 16px; color: #333; }
+.curhatan-body p { margin: 0; font-size: 15px; color: #1a1a1a; line-height: 1.4; white-space: pre-wrap; }
+
+
+/* ==================================== */
+/* 5. PROFILE PAGE SPECIFIC STYLES      */
+/* ==================================== */
+
+.profile-avatar-display {
+    width: 100px; height: 100px; border-radius: 50%; background-color: #ffc107;
+    margin: 0 auto 15px; display: flex; justify-content: center; align-items: center;
+    font-size: 40px; color: #333; overflow: hidden; border: 3px solid #ddd;
+}
+
+.profile-avatar-display { font-size: 65px; }
+
+
+/* ==================================== */
+/* 6. MEDIA QUERIES (FINAL FIX MOBILE)  */
+/* ==================================== */
+
+@media (max-width: 768px) {
+
+    /* --- Body/Grid Perubahan --- */
+    body {
+        display: block; /* Menonaktifkan Grid unik di HP */
+    }
+
+    /* --- Main Container Perubahan --- */
+    .main-container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0; 
+        border: none; 
+    }
+    
+    /* --- Header Perubahan (Mengatasi Potongan Judul) --- */
+    .main-header {
+        padding: 15px 20px;
+        flex-wrap: wrap; /* Izinkan elemen turun baris */
+        justify-content: space-between; 
+    }
+    
+    /* KUNCI: Judul H1 mengambil 100% lebar layar */
+    .main-header h1 {
+        width: 100%; 
+        margin-bottom: 10px; 
+        font-size: 20px; 
+        order: 1; /* Pastikan selalu di baris pertama */
+    }
+    
+    /* Tombol Curhat Dulu, Avatar, Keluar */
+    .header-actions {
+        width: 100%; /* Membentang di baris kedua */
+        justify-content: flex-end; /* Memindahkan semua tombol ke kanan */
+        flex-shrink: 0; 
+        gap: 8px;
+        order: 2; /* Pastikan selalu di baris kedua */
+    }
+    
+    /* --- Padding Konten Feed & CARD --- */
+    .feed-title, 
+    .loading-message {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .curhatan-card {
+        padding: 15px 20px; 
+        align-items: flex-start; /* Agar avatar dan teks sejajar di atas */
+        width: 100%; 
+    }
+
+    /* --- Perbaikan Curhatan Header (Waktu & Tombol Hapus) --- */
+    .curhatan-header {
+        /* Mengizinkan elemen membungkus jika ruang tidak cukup */
+        flex-wrap: wrap; 
+        /* Ganti justify-content untuk mengatur ruang */
+        justify-content: flex-start; 
+        width: 100%; 
+        margin-bottom: 5px;
+    }
+    
+    /* Tombol Hapus: KUNCI AGAR SELALU DI POJOK KANAN */
+    .btn-delete-curhat {
+        flex-shrink: 0; 
+        font-size: 11px;
+        padding: 2px 5px; 
+        margin-left: auto; /* INI KUNCI: Mendorong tombol Hapus ke tepi kanan */
+        order: 4; /* Tetap di akhir baris pertama/awal baris kedua */
+    }
+
+    /* Membuat username dan meta lebih rapi */
+    .curhatan-username { 
+        order: 1; 
+        white-space: nowrap; /* Teks nama panggilan jangan membungkus */
+    }
+    .curhatan-meta {
+        /* Waktu dan tanggal mengambil ruang sisanya */
+        order: 2;
+        margin-left: 5px;
+        flex-grow: 1;
+        white-space: nowrap;
+    }
+}

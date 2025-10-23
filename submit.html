@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulis Curhatanmu - Blog Rahasia</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Tambahan untuk Form Curhatan (Bisa dipindahkan ke style.css) */
+        
+        /* Layout untuk menengahkan form */
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Menengahkan form secara horizontal */
+        }
+        
+        /* Tautan Kembali */
+        .back-link {
+            width: 100%;
+            max-width: 600px; /* Sesuaikan dengan lebar form */
+            margin: 20px auto 10px auto;
+            padding-left: 20px;
+        }
+        .back-link a {
+            color: #ff8800;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Container Form */
+        .curhat-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Lebar yang sama dengan kolom feed di index.html */
+            margin-bottom: 40px;
+        }
+        .curhat-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Input dan Textarea */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical; /* Memungkinkan resize vertikal */
+            min-height: 150px;
+        }
+        
+        /* Tombol Submit */
+        #submit-button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #ffd900; /* Warna biru */
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #submit-button:hover {
+            background-color: #ff9900;
+        }
+
+        /* Pesan Sukses/Error */
+        #submit-message {
+            margin-top: 15px;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="back-link">
+        <a href="index.html">&lt; Kembali ke Beranda Rahasia</a>
+    </div>
+
+    <div class="curhat-container">
+        <h2>Tulis Curhatan Rahasiamu</h2>
+        <form id="curhat-form">
+            <div class="form-group">
+                <label for="curhat-title">Judul Curhatan (Penting!):</label>
+                <input type="text" id="curhat-title" required placeholder="Contoh: Rasanya jadi dewasa">
+            </div>
+            <div class="form-group">
+                <label for="curhat-content">Isi Curhatan (Tulis semua di sini):</label>
+                <textarea id="curhat-content" required placeholder="Tumpahkan semua yang kamu rasakan..."></textarea>
+            </div>
+            
+            <button type="submit" id="submit-button">Kirim Curhatan Rahasia</button>
+            <p id="submit-message" style="display: none;"></p>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

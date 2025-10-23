@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Akun - Blog Rahasia</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Tambahan untuk Halaman Profil */
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 50px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffc107;
+            padding-bottom: 15px;
+        }
+        .profile-header h2 {
+            margin: 0;
+            color: #333;
+        }
+        #current-username {
+            font-size: 1.2em;
+            color: #ffc107;
+            font-weight: bold;
+        }
+        /* Style untuk Avatar Display */
+        .profile-avatar-display {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px; 
+            color: #333;
+            overflow: hidden; 
+            border: 3px solid #ddd;
+        }
+        .profile-avatar-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* --- KODE PERBAIKAN DROPDOWN RATA KANAN --- */
+        #profile-avatar-select {
+            font-size: 20px; 
+            padding: 5px; 
+            width: 100%;
+            
+            /* KUNCI: Membuat teks yang dipilih rata kanan */
+            text-align: left; 
+            /* Memberi jarak pada teks di option */
+            padding-right: 10px;
+        }
+        
+        /* Style form elements konsisten */
+        .form-group label { font-weight: bold; }
+        input[type="text"], textarea, #profile-avatar-select { 
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; 
+            box-sizing: border-box; font-size: 16px; margin-bottom: 15px;
+        }
+        textarea { resize: vertical; }
+
+        /* Style tombol Simpan konsisten */
+        #save-profile-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffc107; 
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+        }
+        #save-profile-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div id="profile-avatar-display" class="profile-avatar-display">?</div>
+            <h2>Profil Akunmu</h2>
+            <p>Panggilanmu saat ini: <span id="current-username">Memuat...</span></p>
+        </div>
+
+        <p id="profile-message" style="display: none;">Pesan sukses atau error akan muncul di sini.</p>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="profile-avatar-select">Pilih Ikon Profil (Emoji):</label>
+                <select id="profile-avatar-select">
+                    <option value="">(Gunakan Inisial)</option>
+                    <option value="👩">👩</option>
+                    <option value="👨">👨</option>
+                    <option value="🦊">🦊</option>
+                    <option value="🦉">🦉</option>
+                    <option value="🌙">🌙</option>
+                    <option value="✏️">✏️</option>
+                    <option value="👻">👻</option>
+                    <option value="🌟">🌟</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="profile-name">Nama Panggilan (Muncul di Curhatan):</label>
+                <input type="text" id="profile-name" placeholder="Nama yang ingin kamu panggil">
+            </div>
+            
+            <div class="form-group">
+                <label for="profile-bio">Tentang Dirimu (Bio):</label>
+                <textarea id="profile-bio" rows="4" placeholder="Ceritakan sedikit tentang dirimu..."></textarea>
+            </div>
+            
+            <button type="submit" id="save-profile-button">Simpan Perubahan Profil</button>
+            
+            <a href="index.html" class="back-link-profile">&lt; Kembali ke Beranda</a>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

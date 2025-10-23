@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk / Daftar - Blog Curhatan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya Sederhana untuk Halaman Login/Register (Bisa dipindahkan ke style.css) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Penting agar padding tidak melebarkan input */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ffd102;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #f07707;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .toggle-link a {
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        #message {
+            margin-bottom: 15px;
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p id="message"></p>
+
+        <div id="login-form-area">
+            <h2>Masuk Siniii</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Akun kamu:</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Rahasia kita:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit">Masuk</button>
+            </form>
+            <div class="toggle-link">
+                Pendatang baru?? <a href="#" id="show-register">Lewat sinii</a>
+            </div>
+        </div>
+
+        <div id="register-form-area" style="display: none;">
+            <h2>Harus kesini buat masuk</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Panggilanmu disini:</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Rahasia kita:</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <button type="submit" style="background-color: #ffd102;">Daftar</button>
+            </form> 
+<div class="toggle-link">
+    Pengunjung lama? <a href="#" id="show-login">Lewat siniii</a>
+</div>
+
+</div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
